@@ -1043,7 +1043,7 @@ ctx.shadowBlur = 0;
 const levels = [
 { name: 'معركة التنظيف', desc: 'نظّف البلاك وعصابة الجراثيم', c1: '#5ab4e8', c2: '#2d7ab0', icon: '🪥' },
 { name: 'مغامرة المطبخ', desc: 'صنّف الأطعمة واحذر ملك الصودا', c1: '#e8a55a', c2: '#b06d2d', icon: '🍎' },
-{ name: 'قلعة الفلورايد', desc: 'دافع عن القلعة وواجه الشرير', c1: '#a55ae8', c2: '#6d2db0', icon: '🛡️' }
+{ name: 'قلعة الفلورايد', desc: 'دافع عن القلعة وواجه وحش التسوّس', c1: '#a55ae8', c2: '#6d2db0', icon: '🛡️' }
 ];
 
 const cardW = 260, cardH = 340, gap = 30;
@@ -1827,7 +1827,7 @@ this.acidBubbles = [];
 this.milkShields = 3;
 this.baskets = {
 good: { x: 140, y: H - 130, w: 200, h: 100, color: '#5cd88a', label: 'أسنان قوية' },
-bad: { x: W - 340, y: H - 130, w: 200, h: 100, color: '#d85c5c', label: 'فخ الدكتور دَكاي' }
+bad: { x: W - 340, y: H - 130, w: 200, h: 100, color: '#d85c5c', label: 'فخ وحش التسوّس' }
 };
 state.score = 0;
 },
@@ -2607,7 +2607,7 @@ hp: 25, maxHp: 25, wobble: 0, hurt: 0,
 actionCooldown: 3, phase: 0
 };
 SFX.bossRoar();
-addFloat(W/2, H/2 - 40, 'الدكتور دَكاي!', '#ff4d4d', 42);
+addFloat(W/2, H/2 - 40, 'وحش التسوّس!', '#ff4d4d', 42);
 } else {
 // Enter riddle
 this.phase = 'riddle';
@@ -2936,7 +2936,7 @@ ctx.fillStyle = '#fff';
 ctx.font = 'bold 16px Cairo';
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
-ctx.fillText('الدكتور دَكاي', W/2, 131);
+ctx.fillText('وحش التسوّس', W/2, 131);
 }
 
 // Aim line
@@ -3012,7 +3012,7 @@ ctx.fillStyle = 'rgba(255,255,255,0.85)';
 ctx.font = 'bold 16px Cairo';
 ctx.textAlign = 'center';
 if (this.phase === 'boss') {
-ctx.fillText('انقر على الدكتور دَكاي لإصابته! استخدم كل ما تعلّمته!', W/2, H - 60);
+ctx.fillText('انقر على وحش التسوّس لإصابته! استخدم كل ما تعلّمته!', W/2, H - 60);
 } else {
 ctx.fillText('انقر لإطلاق الفلورايد! اشتر الأبراج الدفاعية بالنقاط.', W/2, H - 60);
 }
@@ -3340,7 +3340,7 @@ ctx.fillText('حارس الابتسامة البطل', W/2, py + 345);
 
 ctx.font = '22px Cairo';
 ctx.fillStyle = '#3a2a0a';
-ctx.fillText('لانتصاره على الدكتور دَكاي', W/2, py + 395);
+ctx.fillText('لانتصاره على وحش التسوّس', W/2, py + 395);
 ctx.fillText('وإتقانه العناية بالأسنان', W/2, py + 425);
 
 ctx.fillStyle = '#6a4a1a';
