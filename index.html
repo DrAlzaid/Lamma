@@ -281,18 +281,17 @@ const clientY = t.clientY;
 
 if (isRotated) {
 // Canvas is rotated 90deg clockwise via CSS transform.
-// rect is the axis-aligned bbox: rect.width = visual screen width (= game H after rotation),
-// rect.height = visual screen height (= game W after rotation)
-const localX = clientX - rect.left; // 0..rect.width
-const localY = clientY - rect.top; // 0..rect.height
-// For 90deg clockwise rotation:
-// screen top-left -> game top-right
-// screen top-right -> game bottom-right
-// screen bot-left -> game top-left
-// screen bot-right -> game bottom-left
-// So: gameX = (1 - localY/rect.height) * W, gameY = (localX/rect.width) * H
-const gameX = (1 - localY / rect.height) * W;
-const gameY = (localX / rect.width) * H;
+// rect = axis-aligned bbox of rotated canvas.
+// After CSS rotate(90deg): game top edge visually becomes right edge of screen.
+// Screen (localX, localY) -> Game coords:
+// Screen top-left -> Game bottom-left
+// Screen top-right -> Game top-left
+// Screen bottom-right -> Game top-right
+// Screen bottom-left -> Game bottom-right
+const localX = clientX - rect.left;
+const localY = clientY - rect.top;
+const gameX = (localY / rect.height) * W;
+const gameY = (1 - localX / rect.width) * H;
 return { x: gameX, y: gameY };
 }
 
